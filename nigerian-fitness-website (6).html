@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitNaija - Transform Your Physique</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ff6b35;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.15), transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(247, 147, 30, 0.15), transparent 50%);
+        }
+        
+        .hero .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #00ff87, #60efff);
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 40px rgba(0, 255, 135, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 255, 135, 0.5);
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            filter: drop-shadow(0 20px 60px rgba(0, 255, 135, 0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #00ff87);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 255, 135, 0.2);
+            background: #1a1a1a;
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 1.2rem;
+            color: #666;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .video-placeholder p {
+            margin-bottom: 1rem;
+        }
+        
+        .video-placeholder small {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .food-card {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff87;
+        }
+        
+        .food-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00ff87;
+        }
+        
+        .food-card ul {
+            list-style: none;
+            line-height: 2;
+        }
+        
+        .food-card li {
+            color: #e0e0e0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .food-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00ff87;
+            font-weight: 700;
+        }
+        
+        .benefits {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 1px solid #2a2a2a;
+        }
+        
+        .benefits h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #60efff;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-item {
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-item h4 {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .benefit-item p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">FitNaija</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#workouts">Workouts</a></li>
+                <li><a href="#nutrition">Nutrition</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Build Your Dream Physique</h1>
+                <p>Transform your body with proven workout techniques and the power of Nigerian superfoods. Achieve that strong, muscular, and perfectly proportioned physique you've always wanted.</p>
+                <a href="#workouts" class="cta-button">Start Your Journey</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Fit couple in gym attire showing their physique">
+            </div>
+        </div>
+    </section>
+
+    <section id="workouts">
+        <h2 class="section-title">Transform Your Body</h2>
+        <p class="section-subtitle">Achieve peak performance with dedication and proper nutrition</p>
+        
+        <div class="video-container" style="background: #1a1a1a; padding: 0;">
+            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=900&q=80" alt="Fit African man showing impressive physique" style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 20px;">
+        </div>
+
+        <div class="benefits">
+            <h3>Key Exercise Benefits</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💪</div>
+                    <h4>Muscle Growth</h4>
+                    <p>Compound movements for maximum hypertrophy</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔥</div>
+                    <h4>Fat Burning</h4>
+                    <p>High-intensity training to shred body fat</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>Strength Gain</h4>
+                    <p>Progressive overload for peak performance</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Perfect Form</h4>
+                    <p>Proper technique prevents injury and maximizes results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nutrition">
+        <h2 class="section-title">Nigerian Power Foods</h2>
+        <p class="section-subtitle">Fuel your gains with nutrient-dense local foods and fruits</p>
+
+        <div class="food-grid">
+            <div class="food-card">
+                <h3>🍖 Protein Powerhouses</h3>
+                <ul>
+                    <li>Egusi (Melon seeds) - 28g protein per 100g</li>
+                    <li>Beans (Brown/Black-eyed) - Rich in protein & fiber</li>
+                    <li>Mackerel/Titus fish - Omega-3 & lean protein</li>
+                    <li>Chicken breast - Low-fat muscle builder</li>
+                    <li>Groundnuts (Peanuts) - Protein & healthy fats</li>
+                </ul>
+            </div>
+
+            <div class="food-card">
+                <h3>🍠 Energy Carbs</h3>
+                <ul>
+                    <li>Yam - Complex carbs for sustained energy</li>
+                    <li>Brown rice (Ofada) - Nutrient-rich grains</li>
+                    <li>Sweet potato - Beta-carotene & vitamins</li>
+                    <li>Plantain - Potassium & quick energy</li>
+                    <li>Oats - Pre-workout fuel</li>
+                </ul>
+            </div>
+
+            <div class="food-card">
+                <h3>🥗 Essential Veggies</h3>
+                <ul>
+                    <li>Ugwu (Fluted pumpkin) - Iron & vitamins</li>
+                    <li>Efo (Spinach) - Muscle recovery nutrients</li>
+                    <li>Tomatoes - Antioxidants & lycopene</li>
+                    <li>Green pepper - Vitamin C boost</li>
+                    <li>Okra - Fiber & joint health</li>
+                </ul>
+            </div>
+
+            <div class="food-card">
+                <h3>🍌 Super Fruits</h3>
+                <ul>
+                    <li>Banana - Post-workout potassium</li>
+                    <li>Papaya (Pawpaw) - Digestive enzymes</li>
+                    <li>Orange - Vitamin C for immunity</li>
+                    <li>Watermelon - Hydration & recovery</li>
+                    <li>Avocado pear - Healthy fats & vitamins</li>
+                </ul>
+            </div>
+
+            <div class="food-card">
+                <h3>🥤 Power Combos</h3>
+                <ul>
+                    <li>Zobo drink (Hibiscus) - Natural pre-workout</li>
+                    <li>Tiger nut milk - Calcium & energy</li>
+                    <li>Coconut water - Natural electrolytes</li>
+                    <li>Ginger juice - Anti-inflammatory</li>
+                    <li>Palm oil (in moderation) - Vitamin A & E</li>
+                </ul>
+            </div>
+
+            <div class="food-card">
+                <h3>💊 Muscle Builders</h3>
+                <ul>
+                    <li>Crayfish - Lean protein & minerals</li>
+                    <li>Snails - Low-fat protein source</li>
+                    <li>Moi moi - Bean protein meal</li>
+                    <li>Akara - Protein-rich snack</li>
+                    <li>Yogurt - Probiotics & protein</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="benefits" style="margin-top: 4rem;">
+            <h3>Why Nigerian Foods Build Better Physiques</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌾</div>
+                    <h4>Natural & Unprocessed</h4>
+                    <p>Whole foods free from harmful additives and preservatives</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🥇</div>
+                    <h4>Nutrient Dense</h4>
+                    <p>Packed with vitamins, minerals, and essential nutrients</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Cost Effective</h4>
+                    <p>Affordable protein and carb sources readily available</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌍</div>
+                    <h4>Locally Sourced</h4>
+                    <p>Fresh ingredients adapted to our climate and bodies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 FitNaija. Built for transformation. Deploy with Vercel.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
