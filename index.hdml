@@ -363,20 +363,11 @@
     </section>
 
     <section id="workouts">
-        <h2 class="section-title">Perfect Form Workout</h2>
-        <p class="section-subtitle">Master these essential exercises for maximum muscle growth</p>
+        <h2 class="section-title">Transform Your Body</h2>
+        <p class="section-subtitle">Achieve peak performance with dedication and proper nutrition</p>
         
         <div class="video-container">
-            <div class="video-placeholder">
-                <p>📹 <strong>Add Your Workout Video Here</strong></p>
-                <small>Replace this section with your workout demonstration video showing proper form and technique</small>
-            </div>
-            <!-- To add your video, replace the placeholder div with:
-            <video controls>
-                <source src="your-workout-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            -->
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=900&q=80" alt="Athletic black man with impressive physique" style="width: 100%; display: block; border-radius: 20px;">
         </div>
 
         <div class="benefits">
